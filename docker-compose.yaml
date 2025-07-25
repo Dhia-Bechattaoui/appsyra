@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  app:
+    image: app-distribution-server:latest
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - app_data:/app/data
+      - app_uploads:/app/uploads
+      - ./static:/app/static
+      - logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+volumes:
+  app_data:
+  app_uploads:
+  logs: 
